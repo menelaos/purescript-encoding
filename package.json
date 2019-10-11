@@ -1,10 +1,6 @@
 {
   "name": "purescript-encoding",
   "description": "WHATWG/W3C Encoding Standard",
-  "scripts": {
-    "build": "purs compile \"src/**/*.purs\" \"bower_components/purescript-*/src/**/*.purs\"",
-    "test": "purs compile \"src/**/*.purs\" \"bower_components/purescript-*/src/**/*.purs\" \"test/**/*.purs\" && purs bundle \"output/**/*.js\" --module Test.Main --main Test.Main | node"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/menelaos/purescript-encoding.git"
