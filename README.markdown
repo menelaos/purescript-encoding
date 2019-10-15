@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-bower install purescript-encoding
+spago install encoding
 ```
 
 ## Documentation

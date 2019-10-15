@@ -2,15 +2,15 @@ module Test.Encoding
   ( testEncoding )
 where
 
-import Data.Either               (fromRight)
-import Data.TextDecoder          (decodeUtf8)
-import Data.TextEncoder          (encodeUtf8)
-import Effect                    (Effect)
-import Effect.Console            (log)
-import Partial.Unsafe            (unsafePartial)
+import Data.Either      ( fromRight )
+import Data.TextDecoder ( decodeUtf8 )
+import Data.TextEncoder ( encodeUtf8 )
+import Effect           ( Effect )
+import Effect.Console   ( log )
+import Partial.Unsafe   ( unsafePartial )
 import Prelude
-import Test.Input                (WellFormedInput(..))
-import Test.StrongCheck          (Result, (===), quickCheck)
+import Test.Input       ( WellFormedInput (..) )
+import Test.StrongCheck ( Result, (===), quickCheck )
 
 
 testEncoding :: Effect Unit

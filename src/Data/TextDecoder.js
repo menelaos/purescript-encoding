@@ -1,6 +1,6 @@
 "use strict";
 
-exports._decode = function (Left, Right, utfLabel, buffer) {
+exports.decodeImpl = function (Left, Right, utfLabel, buffer) {
   var result;
   var decoder = new TextDecoder(utfLabel);
 

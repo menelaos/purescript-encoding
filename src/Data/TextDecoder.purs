@@ -1,29 +1,28 @@
 module Data.TextDecoder
-  ( Encoding(..)
+  ( Encoding (..)
   , decode
   , decodeUtf8
   )
 where
 
-import Effect.Exception            (Error)
-import Data.ArrayBuffer.Types      (ArrayView)
-import Data.Either                 (Either (Left, Right))
-import Data.Function.Uncurried     (Fn4, runFn4)
+import Effect.Exception        ( Error )
+import Data.ArrayBuffer.Types  ( ArrayView )
+import Data.Either             ( Either (Left, Right) )
+import Data.Function.Uncurried ( Fn4, runFn4 )
 import Prelude
 
 
 -- | Decodes an `ArrayBufferView` with the given `Encoding`.
 -- | Returns an `Error` if decoding fails.
 decode :: ∀ a. Encoding -> (ArrayView a) -> Either Error String
-decode encoding buffer = runFn4 _decode Left Right (show encoding) buffer
+decode encoding buffer = runFn4 decodeImpl Left Right (show encoding) buffer
 
-foreign import _decode ::
-  ∀ a. Fn4
-    (∀ x y. x -> Either x y)
-    (∀ x y. y -> Either x y)
-    String
-    (ArrayView a)
-    (Either Error String)
+foreign import decodeImpl :: ∀ a. Fn4
+  (∀ x y. x -> Either x y)
+  (∀ x y. y -> Either x y)
+  String
+  (ArrayView a)
+  (Either Error String)
 
 -- | Decodes a UTF-8 encoded typed array to a (UTF-16) `String`.
 -- | Returns an `Error` if decoding fails.
@@ -84,7 +83,7 @@ data Encoding
   | X_User_Defined
 
 -- The show instance is used to convert an `Encoding` to a suitable
--- `utfLabel` string that is used in the internal `_decode` helper function.
+-- `utfLabel` string that is used in the internal `decodeImpl` helper function.
 instance showEncoding :: Show Encoding where
   show Utf8           = "utf-8"
   show Ibm866         = "ibm866"

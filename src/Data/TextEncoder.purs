@@ -12,9 +12,9 @@ import Prelude
 
 -- | Encodes a `String` to a `Uint8Array` with the given `Encoding`.
 encode :: Encoding -> String -> Uint8Array
-encode encoding str = runFn2 _encode (show encoding) str
+encode encoding str = runFn2 encodeImpl (show encoding) str
 
-foreign import _encode :: Fn2 String String Uint8Array
+foreign import encodeImpl :: Fn2 String String Uint8Array
 
 -- | Encodes a `String` to a `Uint8Array` using UTF-8 encoding.
 -- | This function is provided as a convenience as UTF-8 is the
@@ -32,7 +32,7 @@ data Encoding
   | Utf_16Le
 
 -- The show instance is used to convert an `Encoding` to a suitable
--- `utfLabel` string that is used in the internal `_encode` helper function.
+-- `utfLabel` string that is used in the internal `encodeImpl` helper function.
 instance showEncoding :: Show Encoding where
   show Utf8     = "utf-8"
   show Utf_16Be = "utf-16be"
