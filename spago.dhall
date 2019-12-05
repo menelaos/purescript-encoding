@@ -4,6 +4,10 @@ You can edit this file as you like.
 -}
 { name =
     "encoding"
+, license =
+    "Apache-2.0"
+, repository =
+    "git://github.com/menelaos/purescript-encoding.git"
 , dependencies =
     [ "arraybuffer-types"
     , "console"
