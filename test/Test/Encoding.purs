@@ -10,7 +10,7 @@ import Effect.Console   ( log )
 import Partial.Unsafe   ( unsafePartial )
 import Prelude
 import Test.Input       ( WellFormedInput (..) )
-import Test.StrongCheck ( Result, (===), quickCheck )
+import Test.QuickCheck  ( Result, (===), quickCheck )
 
 
 testEncoding :: Effect Unit

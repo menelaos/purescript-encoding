@@ -18,8 +18,8 @@ You can edit this file as you like.
     , "partial"
     , "prelude"
     , "psci-support"
+    , "quickcheck"
     , "stringutils"
-    , "strongcheck"
     , "unicode"
     , "unsafe-coerce"
     ]
