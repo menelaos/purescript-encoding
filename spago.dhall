@@ -10,6 +10,7 @@ You can edit this file as you like.
     "git://github.com/menelaos/purescript-encoding.git"
 , dependencies =
     [ "arraybuffer-types"
+    , "arrays"
     , "console"
     , "effect"
     , "either"
@@ -19,9 +20,8 @@ You can edit this file as you like.
     , "prelude"
     , "psci-support"
     , "quickcheck"
-    , "stringutils"
+    , "strings"
     , "unicode"
-    , "unsafe-coerce"
     ]
 , packages =
     ./packages.dhall

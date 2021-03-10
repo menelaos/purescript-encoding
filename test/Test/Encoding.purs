@@ -2,12 +2,12 @@ module Test.Encoding
   ( testEncoding )
 where
 
-import Data.Either      ( fromRight )
+import Data.Either      ( either )
 import Data.TextDecoder ( decodeUtf8 )
 import Data.TextEncoder ( encodeUtf8 )
 import Effect           ( Effect )
 import Effect.Console   ( log )
-import Partial.Unsafe   ( unsafePartial )
+import Partial.Unsafe   ( unsafeCrashWith )
 import Prelude
 import Test.Input       ( WellFormedInput (..) )
 import Test.QuickCheck  ( Result, (===), quickCheck )
@@ -15,7 +15,7 @@ import Test.QuickCheck  ( Result, (===), quickCheck )
 
 testEncoding :: Effect Unit
 testEncoding = do
-  log "Check that `fromRight <<< decodeUtf8 <<< encodeUtf8 == id`"
+  log "Check that `decodeUtf8 <<< encodeUtf8 == Right`"
   -- Note that this identity is not strictly true.
   -- This is because unpaired surrogate values and noncharacters are encoded
   -- to the replacement character (U+FFFD) and thus the `encodeUtf8` function
@@ -25,6 +25,9 @@ testEncoding = do
   let
     encodingIdentityProp :: WellFormedInput -> Result
     encodingIdentityProp (WellFormedInput str) =
-      str === unsafePartial (fromRight <<< decodeUtf8 <<< encodeUtf8 $ str)
+      str === either
+                (\_ -> unsafeCrashWith "This should never happen!")
+                identity
+                (decodeUtf8 <<< encodeUtf8 $ str)
 
   quickCheck encodingIdentityProp
