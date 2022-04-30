@@ -1,6 +1,6 @@
 "use strict";
 
-exports.encodeImpl = function (utfLabel, str) {
+export function encodeImpl (utfLabel, str) {
   var encoder = new TextEncoder(utfLabel);
 
   return encoder.encode(str);
