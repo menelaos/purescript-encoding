@@ -1,6 +1,6 @@
-export function decodeImpl (Left, Right, utfLabel, buffer) {
+export function decodeImpl (Left, Right, label, buffer) {
   let result;
-  const decoder = new TextDecoder(utfLabel, { fatal: true });
+  const decoder = new TextDecoder(label, { fatal: true });
 
   try {
     result = Right(decoder.decode(buffer));

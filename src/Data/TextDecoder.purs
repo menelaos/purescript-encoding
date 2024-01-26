@@ -83,7 +83,7 @@ data Encoding
   | X_User_Defined
 
 -- The show instance is used to convert an `Encoding` to a suitable
--- `utfLabel` string that is used in the internal `decodeImpl` helper function.
+-- `label` string that is used in the internal `decodeImpl` helper function.
 instance showEncoding :: Show Encoding where
   show Utf8           = "utf-8"
   show Ibm866         = "ibm866"
