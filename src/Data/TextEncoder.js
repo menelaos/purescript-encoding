@@ -1,5 +1,5 @@
-export function encodeImpl (utfLabel, str) {
-  const encoder = new TextEncoder(utfLabel);
+export function encodeImpl (str) {
+  const encoder = new TextEncoder();
 
   return encoder.encode(str);
 };
