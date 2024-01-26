@@ -2,15 +2,17 @@ module Test.Encoding
   ( testEncoding )
 where
 
-import Data.Either      ( either )
+import Data.Either      ( either, isLeft )
 import Data.TextDecoder ( decodeUtf8 )
 import Data.TextEncoder ( encodeUtf8 )
 import Effect           ( Effect )
 import Effect.Console   ( log )
 import Partial.Unsafe   ( unsafeCrashWith )
 import Prelude
+import Test.Assert      ( assert )
 import Test.Input       ( WellFormedInput (..) )
 import Test.QuickCheck  ( Result, (===), quickCheck )
+import Test.Util        ( asUint8Array)
 
 
 testEncoding :: Effect Unit
@@ -31,3 +33,6 @@ testEncoding = do
                 (decodeUtf8 <<< encodeUtf8 $ str)
 
   quickCheck encodingIdentityProp
+
+  log "Check that `decodeUtf8` returns `Left` for invalid UTF-8 byte sequences"
+  assert $ isLeft $ decodeUtf8 $ asUint8Array [255]
