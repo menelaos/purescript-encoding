@@ -17,6 +17,12 @@ package:
       - quickcheck
       - strings
       - unicode
+  publish:
+    version: 0.0.10
+    license: Apache-2.0
+    location:
+      githubOwner: menelaos
+      githubRepo: purescript-encoding
 workspace:
   extraPackages: {}
   packageSet:
