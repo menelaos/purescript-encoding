@@ -6,22 +6,23 @@
         "core": {
           "dependencies": [
             "arraybuffer-types",
+            "either",
+            "exceptions",
+            "functions",
+            "prelude"
+          ]
+        },
+        "test": {
+          "dependencies": [
             "arrays",
             "assert",
             "console",
             "effect",
-            "either",
-            "exceptions",
-            "functions",
             "partial",
-            "prelude",
             "quickcheck",
             "strings",
             "unicode"
           ]
-        },
-        "test": {
-          "dependencies": []
         }
       }
     },

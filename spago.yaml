@@ -1,19 +1,22 @@
 package:
   dependencies:
     - arraybuffer-types
-    - arrays
-    - assert
-    - console
-    - effect
     - either
     - exceptions
     - functions
-    - partial
     - prelude
-    - quickcheck
-    - strings
-    - unicode
   name: encoding
+  test:
+    main: Test.Main
+    dependencies:
+      - arrays
+      - assert
+      - console
+      - effect
+      - partial
+      - quickcheck
+      - strings
+      - unicode
 workspace:
   extraPackages: {}
   packageSet:
