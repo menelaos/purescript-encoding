@@ -1,10 +1,10 @@
 package:
   dependencies:
-    - arraybuffer-types
-    - either
-    - exceptions
-    - functions
-    - prelude
+    - arraybuffer-types: ">=3.0.2 <4.0.0"
+    - either: ">=6.1.0 <7.0.0"
+    - exceptions: ">=6.1.0 <7.0.0"
+    - functions: ">=6.0.0 <7.0.0"
+    - prelude: ">=6.0.2 <7.0.0"
   name: encoding
   test:
     main: Test.Main
