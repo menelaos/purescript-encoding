@@ -1,0 +1,20 @@
+package:
+  dependencies:
+    - arraybuffer-types
+    - arrays
+    - assert
+    - console
+    - effect
+    - either
+    - exceptions
+    - functions
+    - partial
+    - prelude
+    - quickcheck
+    - strings
+    - unicode
+  name: encoding
+workspace:
+  extraPackages: {}
+  packageSet:
+    registry: 76.1.1
